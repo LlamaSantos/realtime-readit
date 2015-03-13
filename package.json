@@ -23,6 +23,7 @@
   "dependencies": {
     "babel": "^4.7.12",
     "foundation": "^4.2.1-1",
+    "handlebars": "^3.0.0",
     "hapi": "^8.4.0",
     "react": "^0.13.0"
   },
