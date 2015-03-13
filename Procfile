@@ -1,1 +1,1 @@
-web: ./node_modules/webpack/bin/webpack.js -p && node .
+web: node index.js
