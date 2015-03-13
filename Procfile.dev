@@ -1,1 +1,1 @@
-web: webpack && supervisor .
+web: ./node_modules/webpack/bin/webpack.js && supervisor .
