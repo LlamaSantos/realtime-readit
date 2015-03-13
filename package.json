@@ -22,8 +22,10 @@
   "homepage": "https://github.com/LlamaSantos/realtime-readit",
   "dependencies": {
     "babel": "^4.7.12",
+    "dotenv": "^0.5.1",
     "hapi": "^8.4.0",
-    "react": "^0.13.0"
+    "react": "^0.13.0",
+    "redis": "^0.12.1"
   },
   "devDependencies": {
     "babel-core": "^4.7.12",

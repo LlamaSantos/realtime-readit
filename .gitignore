@@ -29,3 +29,9 @@ node_modules
 
 # built assets
 client/build
+
+#James's shit
+worksheet.js
+
+#No Env File
+.env
