@@ -8,8 +8,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "foreman start -f Procfile.dev",
-    "postinstall": "./node_modules/webpack/bin/webpack.js -p"
+    "start": "foreman start -f Procfile.dev"
   },
   "repository": {
     "type": "git",
