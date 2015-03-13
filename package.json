@@ -22,7 +22,7 @@
   "homepage": "https://github.com/LlamaSantos/realtime-readit",
   "dependencies": {
     "babel": "^4.7.12",
-    "hapi": "^8.4.0",
+    "hapi": "^8.4.0"
   },
   "devDependencies": {
     "babel-core": "^4.7.12",
