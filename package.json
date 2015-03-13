@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "engines": {
+    "node": ">=0.12",
+    "iojs": ">=1.4"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +19,10 @@
   "bugs": {
     "url": "https://github.com/LlamaSantos/realtime-readit/issues"
   },
-  "homepage": "https://github.com/LlamaSantos/realtime-readit"
+  "homepage": "https://github.com/LlamaSantos/realtime-readit",
+  "dependencies": {
+    "babel": "^4.7.12",
+    "hapi": "^8.4.0",
+    "webpack": "^1.7.3"
+  }
 }
