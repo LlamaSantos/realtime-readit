@@ -66,6 +66,4 @@ server.route({
   }
 });
 
-server.start(() => {
-  console.info(`Server running at: ${server.info.uri}`);
-});
+export default server;
