@@ -23,6 +23,15 @@
   "dependencies": {
     "babel": "^4.7.12",
     "hapi": "^8.4.0",
+  },
+  "devDependencies": {
+    "babel-core": "^4.7.12",
+    "babel-loader": "^4.1.0",
+    "babel-runtime": "^4.7.12",
+    "css-loader": "^0.9.1",
+    "extract-text-webpack-plugin": "^0.3.8",
+    "sass-loader": "^0.5.0",
+    "style-loader": "^0.8.3",
     "webpack": "^1.7.3"
   }
 }
