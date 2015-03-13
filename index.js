@@ -1,3 +1,4 @@
+require('dotenv').load();
 require('babel/register');
 var server = require('./server/index.js')
 

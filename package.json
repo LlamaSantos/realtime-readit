@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": ">=0.12",
-    "iojs": ">=1.4"
+    "node": ">=0.12"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
