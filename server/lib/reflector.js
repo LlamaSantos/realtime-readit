@@ -2,34 +2,36 @@ import redis from 'redis';
 import { List, Map } from 'immutable';
 
 const info = console.info.bind(console, 'INFO:\t');
-
-info('Creating connection to redis');
+const error = console.error.bind(console, 'ERROR:\t');
 const channel = 'reddit';
-let client = redis.createClient({
-  host: process.env.REDIS_URL,
-  port: process.env.REDIS_PORT,
-  secret: process.env.REDIS_SECRET
-});
 
 let clients = List();
+let client = redis.createClient(
+    process.env.REDIS_PORT,
+    process.env.REDIS_URL);
 
-info('Creating subscription to message');
+client.auth(process.env.REDIS_SECRET, (err) => {
+  if (err) {
+    error(err);
+    process.exit(-1);
+  } else {
+    info('Redis authentication successful');
+  }
+
+  info("Subcribing to the channel", client.subscribe(channel));
+});
+
 client.on('message', function (channel, message) {
+  info("Message received, ", message);
   clients.forEach((c) => {
-    c.socket.write(message);
+    c.socket.write(`${message}\n`);
   });
 });
 
-info('Handling errors');
 client.on('error', function (err) {
-  console.error('ERROR:\t', err);
+  error(err);
   process.exit(-1);
 });
-
-info('Actually subscribing');
-info(client.subscribe(channel));
-
-
 
 export default {
   logging: true,

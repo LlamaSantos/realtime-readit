@@ -35,12 +35,7 @@ server.route({
       .header('Cache-Control', 'no-cache')
       .header('Connection', 'keep-alive');
 
-    let close = reflector.connect(_res);
-
-    _req.on('close', () => {
-      console.info('Client connection closed');
-      close();
-    });
+    _req.on('close', reflector.connect(_res));
   }
 });
 
