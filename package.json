@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/LlamaSantos/realtime-readit",
   "dependencies": {
+    "axios": "^0.5.2",
     "babel": "^4.7.12",
     "babel-core": "^4.7.12",
     "babel-loader": "^4.1.0",
