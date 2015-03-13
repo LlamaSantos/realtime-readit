@@ -1,3 +1,8 @@
 import React from 'react';
+import Router from 'react-router';
 
-console.log('here');
+import routes from 'config/routes';
+
+Router.run(routes, (Handler) => {
+  React.render(<Handler/>, document.getElementById('app'));
+});

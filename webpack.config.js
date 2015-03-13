@@ -88,7 +88,7 @@ module.exports = {
   ],
 
   resolve: {
-    root: [paths.npm],
+    root: [paths.npm, path.join(paths.src, 'js')],
     modulesDirectories: [paths.npm],
     extensions: ['', '.js', '.html', '.css', '.scss']
   }
