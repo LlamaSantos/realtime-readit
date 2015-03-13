@@ -40,12 +40,13 @@ module.exports = {
   },
 
   plugins: [
-    new ExtractTextPlugin('[name].css'),
+    new ExtractTextPlugin('[name].[hash].css'),
     new webpack.DefinePlugin({})
   ],
 
   resolve: {
     root: [paths.npm],
+    modulesDirectories: [paths.npm],
     extensions: ['', '.js', '.html', '.css', '.scss']
   }
 };
