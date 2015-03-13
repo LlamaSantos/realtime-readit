@@ -1,2 +1,6 @@
 require('babel/register');
-require('./server.js');
+var server = require('./server/index.js')
+
+server.start(function() {
+  console.info('Server running at: ' + this.info.uri);
+}.bind(server));

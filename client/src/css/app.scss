@@ -1,5 +1,4 @@
-@import 'variables';
+@import 'foundation/scss/normalize.scss';
+@import 'foundation/scss/foundation.scss';
 
-body {
-  background-color: $black;
-}
+@import 'variables';
