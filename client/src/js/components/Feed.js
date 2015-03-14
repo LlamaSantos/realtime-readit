@@ -1,20 +1,29 @@
 import React from 'react';
-
-var getListings = () => {
-  return [
-    {id: 1, title: 'Tortor Ridiculus Aenean Vehicula Ultricies'},
-    {id: 2, title: 'Bibendum Sollicitudin Inceptos Aenean Vulputate'},
-    {id: 3, title: 'Pharetra Lorem Egestas Ornare Euismod'}
-  ];
-};
+import store from 'common/store'
 
 export default React.createClass({
   getInitialState () {
     return {
-      listings: getListings()
+      listings: store.getListings()
     };
   },
 
+  componentDidMount () {
+    store.addChangeListener(this._onChange);
+  },
+
+  componentWillUnmount () {
+    store.removeChangeListener(this._onChange);
+  },
+
+
+  _onChange () {
+    console.log('on store change');
+
+    this.setState({
+      listings: store.getListings()
+    })
+  },
 
   render () {
     return (
