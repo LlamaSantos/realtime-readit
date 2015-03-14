@@ -35,15 +35,13 @@ client.on('error', function (err) {
 });
 
 export default {
-  logging: true,
   connect(response) {
 
     info('Client connected.');
     clients = clients.concat(response);
 
     return () => {
-      if (this.logging)
-        info('Client disconnected');
+      info('Client disconnected');
 
       response.end();
       clients = clients.filter((c) => c !== response);

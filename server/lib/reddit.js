@@ -18,6 +18,9 @@ let fetch = (reply) => {
           .map((i) => {
             let r = i.data;
             return {
+              domain:       r.domain,
+              over_18:      r.over_18,
+              created:      r.created,
               title:        r.title,
               subreddit:    r.subreddit,
               id:           r.id,
@@ -64,7 +67,7 @@ let run = () => {
 
       update(err, list);
     })
-  }, 3000);
+  }, 500);
 };
 
 let cancel = () => {
