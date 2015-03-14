@@ -23,17 +23,23 @@ export default React.createClass({
 
 
   _onChange () {
+    console.log('new data');
+
     this.setState({
       listings: store.getListings()
     })
   },
 
   render () {
+
     return (
       <MagicMove>
         {this.state.listings.map((item) => {
           return (
-              <div className="listing" key={item.id}>{item.title}</div>
+            <div className="listing" key={item.id}>
+              <p><a href={'//reddit.com' + item.permalink}>{item.title}</a></p>
+              <p>{item.num_comments}</p>
+            </div>
           );
         })}
       </MagicMove>
