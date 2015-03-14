@@ -44,6 +44,9 @@ server.route({
       .header('Cache-Control', 'no-cache')
       .header('Connection', 'keep-alive');
 
+    _res.setHeader('Content-Type', 'text/event-stream');
+    _res.setHeader('Cache-Control', 'no-cache');
+    _res.setHeader('Connection', 'keep-alive');
     _req.on('close', reflector.connect(_res));
   }
 });
