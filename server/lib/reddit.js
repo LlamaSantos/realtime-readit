@@ -18,6 +18,7 @@ let fetch = (reply) => {
           .map((i) => {
             let r = i.data;
             return {
+              title:        r.title,
               subreddit:    r.subreddit,
               id:           r.id,
               thumbnail:    r.thumbnail,
