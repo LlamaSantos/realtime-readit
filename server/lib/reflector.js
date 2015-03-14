@@ -1,8 +1,8 @@
 import redis from 'redis';
 import { List, Map } from 'immutable';
 
-const info = console.info.bind(console, 'INFO:\t');
-const error = console.error.bind(console, 'ERROR:\t');
+const info = console.info.bind(console, 'INFO: ');
+const error = console.error.bind(console, 'ERROR: ');
 const channel = 'reddit';
 
 let clients = List();
@@ -22,7 +22,7 @@ client.auth(process.env.REDIS_SECRET, (err) => {
 });
 
 client.on('message', function (channel, message) {
-  info("Message received, ", message);
+  info(`Message Received on '${channel}', ${message.toString().substring(10)}`);
   clients.forEach((c) => {
     c.socket.write(`${message}\n`);
   });

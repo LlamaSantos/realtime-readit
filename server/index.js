@@ -3,6 +3,15 @@ import stream from 'stream';
 import path from 'path';
 import handlebars from 'handlebars';
 import reflector from './lib/reflector';
+import reddit from './lib/reddit';
+
+//reddit.monitor((err, payload) =>{
+//  if (err) {
+//    console.error("Error1: ", err);
+//  } else {
+//    console.info("Data Received: ", payload);
+//  }
+//});
 
 let server = new Hapi.Server();
 server.connection({ port: process.env.PORT || 8081 });
