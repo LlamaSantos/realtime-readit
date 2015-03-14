@@ -12,7 +12,6 @@ const channel = 'reddit';
 let fetch = (reply) => {
   axios.get('https://www.reddit.com/.json').then((res) => {
     if (res.data && res.data.data) {
-      debugger;
       let results =
         List(res.data.data.children)
           .filter((i) => !!i.data)
