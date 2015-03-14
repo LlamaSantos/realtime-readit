@@ -23,15 +23,12 @@ export default React.createClass({
 
 
   _onChange () {
-    console.log('new data');
-
     this.setState({
       listings: store.getListings()
     })
   },
 
   render () {
-
     return (
       <MagicMove>
         {this.state.listings.map((item) => {

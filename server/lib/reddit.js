@@ -35,7 +35,7 @@ let fetch = (reply) => {
           }
         );
 
-      reply(null, results);
+      reply(null, {ts: Date.now(), data: results.toJS()});
     }
   }).catch((error) => {
     reply(error, {});
@@ -57,17 +57,17 @@ let run = () => {
   info('Starting to read data from reddit');
 
   setInterval(function() {
-    fetch((err, list) => {
+    fetch((err, data) => {
 
       if (err) {
         error("we didn't publish", err);
       } else {
-        client.publish(channel, JSON.stringify(list.toJS()));
+        client.publish(channel, JSON.stringify(data));
       }
 
-      update(err, list);
+      update(err, data);
     })
-  }, 500);
+  }, 3000);
 };
 
 let cancel = () => {
