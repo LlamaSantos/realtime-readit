@@ -2,3 +2,8 @@
 @import 'foundation/scss/foundation.scss';
 
 @import 'variables';
+
+.listing {
+  transition: all 500ms ease;
+  box-sizing: border-box;
+}

@@ -2,6 +2,8 @@ import React from 'react';
 import store from 'common/store'
 import actions from 'common/actions'
 
+import MagicMove from 'MagicMove';
+
 export default React.createClass({
   getInitialState () {
     return {
@@ -28,13 +30,13 @@ export default React.createClass({
 
   render () {
     return (
-      <ul>
+      <MagicMove>
         {this.state.listings.map((item) => {
           return (
-            <li key={item.id}>{item.title}</li>
+              <div className="listing" key={item.id}>{item.title}</div>
           );
         })}
-      </ul>
+      </MagicMove>
     );
   }
 });
