@@ -44,7 +44,6 @@ server.route({
       'Cache-Control': 'no-cache',
       'Connection': 'keep-alive'
     });
-    _res.write('\n');
     _req.on('close', reflector.connect(_res));
   }
 });
