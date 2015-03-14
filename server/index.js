@@ -39,14 +39,12 @@ server.route({
     let _req = req.raw.req;
     let _res = req.raw.res;
 
-    reply(channel)
-      .header('Content-Type', 'text/event-stream')
-      .header('Cache-Control', 'no-cache')
-      .header('Connection', 'keep-alive');
-
-    _res.setHeader('Content-Type', 'text/event-stream');
-    _res.setHeader('Cache-Control', 'no-cache');
-    _res.setHeader('Connection', 'keep-alive');
+    _res.writeHead(200, {
+      'Content-Type': 'text/event-stream',
+      'Cache-Control': 'no-cache',
+      'Connection': 'keep-alive'
+    });
+    _res.write('\n');
     _req.on('close', reflector.connect(_res));
   }
 });
