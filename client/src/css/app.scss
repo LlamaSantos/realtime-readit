@@ -1,9 +1,111 @@
 @import 'foundation/scss/normalize.scss';
 @import 'foundation/scss/foundation.scss';
 
-@import 'variables';
+@import 'media-object';
 
-.listing {
-  transition: all 500ms ease;
+html { font-size: 62.5%; }
+body {
+  background: #E2F2FC;
+  font-family: Roboto, Geneva, Helvetica, Arial, sans;
+}
+h2 {
+  color:#455961;
+  font-family: Roboto, Geneva, Helvetica, Arial, sans;
+  text-transform: uppercase;
+  font-weight: 400;
+  font-size: 2rem;
+}
+h3 {
+  color:#455961;
+  font-family: Roboto, Geneva, Helvetica, Arial, sans;
+}
+a { color: #F81A5D; }
+
+
+
+.container {
+  overflow: hidden;
+  width: 900px;
+  margin: 0 auto;
+}
+
+.spacer {
+  margin-bottom: 2rem;
+}
+
+
+.thing {
+  background: #fff;
+  color: #364246;
   box-sizing: border-box;
+  overflow: auto;
+  position: relative;
+  height: 100%;
+}
+.thing:focus,
+.thing:hover {
+  background: #01ADF5;
+  color: #fff;
+}
+.thing:focus a,
+.thing:hover a {
+ color: #fff;
+}
+
+.thing--entry {
+  padding: 1rem 2rem;
+}
+
+.thing--title {
+  color: #455961;
+  font-size: 1.6rem;
+  font-weight: 500;
+  line-height: 1.2;
+  text-transform: none;
+}
+.thing--title a {
+  color: #455961;
+}
+.thing--link-label {
+  font-size: 1rem;
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background: #eee;
+  border: 1px solid #e1e1e1;
+  border-radius: 3px;
+  margin-bottom: 1.5rem;
+}
+
+.thing--media {
+  width: 150px;
+  min-height: 1px;
+}
+
+
+
+.thing--votes {
+  font-size: 1rem;
+  margin: 10px 1.5em 1rem 0;
+  text-align: center;
+  width: 100px;
+  float: left;
+  height: 100%;
+  vertical-align: middle;
+  line-height: 2em;
+}
+.thing--votes--score {
+  font-size: 2em;
+  font-weight: 700;
+}
+.thing--tagline {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 0;
+  width: 100%;
+}
+.thing--controls {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  text-align: justify;
 }

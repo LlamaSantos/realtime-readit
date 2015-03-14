@@ -4,7 +4,9 @@ import Feed from 'components/Feed'
 export default React.createClass({
   render: function(){
     return (
-      <Feed />
+      <div className="content">
+        <Feed />
+      </div>
     )
   }
 });

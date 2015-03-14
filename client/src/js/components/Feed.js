@@ -30,16 +30,39 @@ export default React.createClass({
 
   render () {
     return (
-      <MagicMove>
-        {this.state.listings.map((item) => {
+      <div className="media-list">
+        {(this.state.listings||[]).map((item) => {
           return (
-            <div className="listing" key={item.id}>
-              <p><a href={'//reddit.com' + item.permalink}>{item.title}</a></p>
-              <p>{item.num_comments}</p>
+            <div className="thing spacer media" key={item.id}>
+              <div className="thing--media left">
+                <img className="media-object" src={item.thumbnail} />
+              </div>
+
+              <div className="thing--votes left">
+                <div className="media-object">
+                  <div className="thing--votes--arrow up">Ups: {item.ups}</div>
+                  <div className="thing--votes--score">{item.score}</div>
+                  <div className="thing--votes--arrow down">Downs: {item.downs}</div>
+                </div>
+              </div>
+
+              <div className="thing--entry media-body">
+
+                <h3 className="thing--title">
+                  <a href={'//reddit.com' + item.permalink}>{item.title}</a>{' '}
+                  <span className="thing--link-label">{item.subreddit}</span>{' '}
+                </h3>
+                <p className="thing--tagline">{new Date(item.created)}</p>
+                <ul className="thing--controls">
+                  <li className="thing--controls--comments">
+                    <a href={'//reddit.com' + item.permalink}>{item.num_comments} comments</a>
+                  </li>
+                </ul>
+              </div>
             </div>
           );
         })}
-      </MagicMove>
+      </div>
     );
   }
 });
