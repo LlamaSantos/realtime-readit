@@ -24,7 +24,8 @@ client.auth(process.env.REDIS_SECRET, (err) => {
 client.on('message', function (channel, message) {
   info(`Message Received on '${channel}'`);
   clients.forEach((c) => {
-    c.write(`${message}\n`);
+    c.write(`event: message\n`);
+    c.write(`data: ${message}\n\n`);
   });
 });
 
