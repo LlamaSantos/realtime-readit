@@ -21,8 +21,6 @@ export default React.createClass({
 
 
   _onChange () {
-    console.log('on store change');
-
     this.setState({
       listings: store.getListings()
     })
