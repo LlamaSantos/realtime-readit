@@ -35,16 +35,15 @@ server.route({
   method: 'GET',
   path: '/data-stream',
   handler (req, reply) {
-    let channel = new stream.PassThrough
-    let _req = req.raw.req;
-    let _res = req.raw.res;
+    let channel = new stream.PassThrough;
 
-    _res.writeHead(200, {
-      'Content-Type': 'text/event-stream',
-      'Cache-Control': 'no-cache',
-      'Connection': 'keep-alive'
-    });
-    _req.on('close', reflector.connect(_res));
+    reply(channel)
+      .code(200)
+      .type('text/event-stream')
+      .header('Connection', 'keep-alive')
+      .header('Cache-Control', 'no-cache');
+
+    req.raw.req.on('close', reflector.connect(channel));
   }
 });
 

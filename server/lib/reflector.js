@@ -22,9 +22,9 @@ client.auth(process.env.REDIS_SECRET, (err) => {
 });
 
 client.on('message', function (channel, message) {
-  info(`Message Received on '${channel}', ${message.toString().substring(10)}`);
+  info(`Message Received on '${channel}'`);
   clients.forEach((c) => {
-    c.socket.write(`${message}\n`);
+    c.write(`${message}\n`);
   });
 });
 
@@ -35,17 +35,17 @@ client.on('error', function (err) {
 
 export default {
   logging: true,
-  connect(socket) {
+  connect(response) {
 
     info('Client connected.');
-    clients = clients.concat(socket);
+    clients = clients.concat(response);
 
     return () => {
       if (this.logging)
         info('Client disconnected');
 
-      socket.end();
-      clients = clients.filter((c) => c !== socket);
+      response.end();
+      clients = clients.filter((c) => c !== response);
     };
   }
 }
