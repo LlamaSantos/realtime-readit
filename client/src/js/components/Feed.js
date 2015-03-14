@@ -23,6 +23,7 @@ export default React.createClass({
 
 
   _onChange () {
+    console.log(store.getListings());
     this.setState({
       listings: store.getListings()
     })
@@ -31,7 +32,7 @@ export default React.createClass({
   render () {
     return (
       <div className="media-list">
-        {(this.state.listings||[]).map((item) => {
+        {this.state.listings.map((item) => {
           return (
             <div className="thing spacer media" key={item.id}>
               <div className="thing--media left">

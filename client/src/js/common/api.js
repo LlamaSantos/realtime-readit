@@ -7,7 +7,7 @@ var API = assign({}, EventEmitter.prototype, {
     this.source = new EventSource('/data-stream');
 
     this.source.addEventListener('message', (e) => {
-      this.emit('success', JSON.parse(e.data));
+      this.emit('success', JSON.parse(e.data).data);
     }, false);
   },
 
