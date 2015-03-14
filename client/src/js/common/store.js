@@ -1,15 +1,11 @@
 import { EventEmitter } from 'events';
 import assign from 'react/lib/Object.assign';
 
-import { CHANGE_EVENT, ADD_LISTINGS } from 'common/constants';
+import { CHANGE_EVENT, LISTINGS_RECEIVED } from 'common/constants';
 import dispatcher from 'common/dispatcher';
 
 var _cache = {
-  listings: [
-    {id: 1, title: 'Tortor Ridiculus Aenean Vehicula Ultricies'},
-    {id: 2, title: 'Bibendum Sollicitudin Inceptos Aenean Vulputate'},
-    {id: 3, title: 'Pharetra Lorem Egestas Ornare Euismod'}
-  ]
+  listings: []
 };
 
 var addListings = function (newListings) {
@@ -38,7 +34,7 @@ dispatcher.register((payload) => {
   var action = payload.action;
 
   switch(action.actionType){
-    case ADD_LISTINGS:
+    case LISTINGS_RECEIVED:
       addListings(action.data);
       store.emit(CHANGE_EVENT);
       break;

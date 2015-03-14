@@ -1,5 +1,6 @@
 import React from 'react';
 import store from 'common/store'
+import actions from 'common/actions'
 
 export default React.createClass({
   getInitialState () {
@@ -10,10 +11,12 @@ export default React.createClass({
 
   componentDidMount () {
     store.addChangeListener(this._onChange);
+    actions.fetchListings.start();
   },
 
   componentWillUnmount () {
     store.removeChangeListener(this._onChange);
+    actions.fetchListings.stop();
   },
 
 
